@@ -1,7 +1,14 @@
 <template>
   <div>
       <ul>
-        <li v-for="date of paramDate($route.params.days)" :key="date.id">{{ date.txt }}</li>
+        <li 
+          v-for="(date , i) of plan[$route.params.days]" 
+          :key="date.id"
+          >
+          <span>{{ (i + 1)  + ".  "}}</span>
+          <span>{{ date.txt }}</span>
+          <button @click="delPlan($route.params.days , date.id)">삭제</button>
+        </li>
       </ul>
   </div>
 
@@ -10,13 +17,16 @@
 import {  useStore  } from "vuex";
 export default{
   setup() {
-    const store = useStore()
+    let store = useStore()
     const plan = store.state.plan
-    function paramDate(param) {
-      console.log(plan[param]);
-      return plan[param]
-    } 
-    return {paramDate}
+
+    const delPlan = (param, id) => {
+      const changeData = plan[param].filter(data => data.id !== id)
+      plan[param] = changeData;
+      store.commit('setPlan',plan[param])
+    }
+
+    return {delPlan ,plan}
   }
 
 }

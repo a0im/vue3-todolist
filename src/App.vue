@@ -1,10 +1,10 @@
 <template>
-  <nav>
-    <Header>
-</Header>
-  </nav>
-
-  <router-view/> <!--이거 머지 여기서 라우터 표시해주는듯 -->
+  <div id="root">
+    <div class="contain">
+    <Header/>
+    <router-view/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,24 +19,26 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+a {
+  text-decoration: none;
+  color: black;
+}
+li,ol,ul{
+  list-style: none;
 }
 
-nav {
-  padding: 30px;
+#root {
+  width: 100vw;
+  height: 100vh;
+  background: #d1d5da;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.contain{
+  width: 540px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
 }
 </style>

@@ -63,18 +63,16 @@ export default createStore({
   },
   getters: {
     checkDate(state){
-      state.plan[state.week.eng]
+      console.log(state)
+      return state
     }
   },
   mutations: {
-  },
-  actions: {
     setPlan(state , value){
-      const newPlan = JSON.parse(JSON.stringify(state.setPlan))
-      console.log(newPlan)
-      // state.setPlan = 
+      state.plan = value
+      console.log(state.plan)
     }
   },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })
