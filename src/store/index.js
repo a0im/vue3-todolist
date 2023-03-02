@@ -5,31 +5,31 @@ export default createStore({
     week : [
       {
         eng : "mon",
-        kor : "월"
+        kor : "월요일"
       },
       {
         eng : "tus",
-        kor : "화"
+        kor : "화요일"
       },
       {
         eng : "wed",
-        kor : "수"
+        kor : "수요일"
       },
       {
         eng : "thur",
-        kor : "목"
+        kor : "목요일"
       },
       {
         eng : "fri",
-        kor : "금"
+        kor : "금요일"
       },
       {
         eng : "sat",
-        kor : "토"
+        kor : "토요일"
       },
       {
         eng : "sun",
-        kor : "일"
+        kor : "일요일"
       },
     ],
 
@@ -37,19 +37,24 @@ export default createStore({
       mon : [
         {
         id : 20220228,
-        txt : "오늘은뭐하지"
+        txt : "오늘은뭐하지",
+        date : '2023-3-1'
       },
         {
         id : 20220229,
-        txt : "2222"
+        txt : "2222",
+        date : '2023-3-1'
       },
         {
         id : 20220210,
-        txt : "오늘은뭐하지3333"
+        txt : "오늘은뭐하지3333",
+        date : '2023-3-1'
+
       },
         {
         id : 20220211,
-        txt : "오늘은뭐하지444"
+        txt : "오늘은뭐하지444",
+        date : '2023-3-1'
       },
     ],
       tus : [],

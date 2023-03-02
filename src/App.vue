@@ -19,6 +19,14 @@ export default {
 </script>
 
 <style>
+/* global */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -26,6 +34,11 @@ a {
 li,ol,ul{
   list-style: none;
 }
+
+input,select,button{
+  border: none;
+  background: #fff;
+} 
 
 #root {
   width: 100vw;
@@ -39,6 +52,6 @@ li,ol,ul{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background: #fff;
+  background: #f3f4f6;
 }
 </style>
