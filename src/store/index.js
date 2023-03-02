@@ -37,22 +37,25 @@ export default createStore({
       mon : [
         {
         id : 20220228,
+        done : false,
         txt : "오늘은뭐하지",
         date : '2023-3-1'
       },
         {
         id : 20220229,
+        done : false,
         txt : "2222",
         date : '2023-3-1'
       },
         {
         id : 20220210,
+        done : false,
         txt : "오늘은뭐하지3333",
         date : '2023-3-1'
-
       },
         {
         id : 20220211,
+        done : false,
         txt : "오늘은뭐하지444",
         date : '2023-3-1'
       },
