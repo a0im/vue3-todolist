@@ -1,9 +1,12 @@
 <template>
   <header>
-    <h1 class="title"><router-link to="/">TODOLIST</router-link></h1>
+    <div class="title">
+    <h1><router-link to="/">TODOLIST</router-link></h1>
+    <div><img src="@/assets/img/skill.png" alt="skill"></div>
+    </div>
     <form @submit.prevent="addData">
-      <input type="text" placeholder="일정을 적어주세요." v-model="plenTxt">
-      <select name="week" @change="intoDay" v-model="selectWeek">
+      <input :key="rdRef" type="text" placeholder="일정을 적어주세요." v-model="planTxt">
+      <select name="week" @change="intoDay"  v-model="selectWeek">
         <option  :value="null">요일선택</option>
         <option :key="i" v-for="(day , i) of week" :value="day.eng">{{day.kor}}</option>
       </select>
@@ -19,6 +22,7 @@
 <script>
 import {  useStore  } from "vuex";
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 export default{
   setup(){
@@ -27,10 +31,12 @@ export default{
     const plan = store.state.plan
     const router = useRouter()
     let selectWeek = null
-    let plenTxt = null
+    let planTxt = ""
+    let rdRef = ref(0)
+
 
     function addData() {
-      if (this.selectWeek && this.plenTxt) {
+      if (this.selectWeek && this.planTxt) {
         let formatId = ''
         let formatDate = ''
         const time = new Date()
@@ -57,12 +63,15 @@ export default{
         let newPlan = {
           id : Number(formatId),
           done : false,
-          txt : this.plenTxt,
+          txt : this.planTxt,
           date : formatDate
         }
         console.log(newPlan);
         plan[this.selectWeek].push(newPlan)
         store.commit('setPlan',plan)
+        this.planTxt = ""
+        
+        rdRef.value++
       }
     }
 
@@ -75,22 +84,38 @@ export default{
       }
     }
 
-    return {week , addData, selectWeek , plenTxt ,intoDay}
+    return {week , addData, selectWeek , planTxt ,intoDay ,rdRef}
   }
 }
 </script>
 
 <style scoped>
+
 .title{
+  display: flex;
+  justify-content: space-between;
+}
+.title h1{
   font-size: 48px;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 20px;
 }
 
-.title a {
+.title > h1 > a {
   background: #42f8a8;
 }
+
+.title > div{
+  width: 55px;
+  height: 55px;
+}
+
+.title > div > img {
+  width: 100%;
+}
+
+
 
 form{
   display: flex;

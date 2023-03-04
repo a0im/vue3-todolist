@@ -1,5 +1,7 @@
 <template>
   <main>
+
+    <h2 class="subTitle">{{printTitle($route.params.days)}}</h2>
       <ul class="planBox">
         <li 
           v-for="date  of plan[$route.params.days]" 
@@ -33,7 +35,16 @@ import {  useStore  } from "vuex";
 export default{
   setup() {
     const store = useStore()
+    const week = store.state.week
     const plan = store.state.plan
+    
+    const printTitle = (route) => {
+      let [curDay] = week.filter((day)=>{
+        if (day.eng === route) return true
+      })
+
+      return curDay.kor
+    }
 
     const delPlan = (param, id) => {
       const changeData = plan[param].filter(data => data.id !== id)
@@ -56,7 +67,7 @@ export default{
       store.commit('setPlan',plan[param])
     }
 
-    return { plan , delPlan , isDone }
+    return {week, plan , delPlan , isDone , printTitle }
   }
 }
 </script>
@@ -64,6 +75,13 @@ export default{
 <style scoped>
   main {
     margin : 30px;
+  }
+
+  .subTitle{
+    font-size: 32px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    font-weight : 500;
   }
 
   .planBox{
