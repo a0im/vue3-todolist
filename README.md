@@ -1,24 +1,22 @@
-# todo-vue3
+VUE TODOLIST
+📝 설명
+뷰로 만든 요일별로 일정을 추가 삭제할 수 있는 일정 관리 웹앱입니다.
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+🔧 사용툴, 사용언어
+Javascript
+Vue
 
-### Compiles and minifies for production
-```
-npm run build
-```
+🔍 기능설명
+메인화면
+각 요일이 적혀있는 버튼과 상단에 요일 선택 옵션 항목을 선택하면 선택한 요일에 해당한 일정이 담겨있는 페이지로 이동합니다 .
 
-### Lints and fixes files
-```
-npm run lint
-```
+요일별 일정 목록
+추가한 일정들을 확인할 수 있습니다.
+일정을 삭제할 수 있는 기능을 제공합니다.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+👩‍💻 감상
+
+
+
+📚 어려웠던점
